@@ -1,0 +1,5 @@
+{
+  "watch": "src/",
+  "verbose": true,
+  "delay": "1000"
+}

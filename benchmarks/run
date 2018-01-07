@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+echo
+duration=$1
+nb_instances=$2
+
+echo "Start benchmark running $nb_instances node instances"
+dockerid=$(docker run -p 8080:3000 -e NB_NODES=$nb_instances -d api-starter:latest )
+
+sleep 2
+
+wrk "http://localhost:8080" \
+  -d $duration \
+  -c 400 \
+  -t 12 \
+  -s script.lua
+
+docker stop $dockerid
