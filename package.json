@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "start:dev":
-      "nodejs-dashboard -- nodemon --config .nodemon.json src/index.js",
+    "start:dev": "nodejs-dashboard -- nodemon --config .nodemon.json src/index.js",
     "prettyall": "prettier --single-quote --write 'src/**/*.*'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,6 +34,7 @@
     "convict": "^4.0.2",
     "date-fns": "^1.29.0",
     "dotenv": "^4.0.0",
+    "gdax": "github:coinbase/gdax-node",
     "graphql": "^0.12.3",
     "graphql-redis-subscriptions": "^1.4.0",
     "graphql-tools": "^2.16.0",
@@ -47,6 +47,7 @@
     "koa-router": "^7.3.0",
     "lowdb": "^1.0.0",
     "node-fetch": "^1.7.3",
+    "rxjs": "^5.5.6",
     "subscriptions-transport-ws": "^0.9.4"
   },
   "devDependencies": {

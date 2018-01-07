@@ -1,15 +1,16 @@
 const { withFilter } = require('graphql-subscriptions');
 
 const pubsub = require('../../pubsub')();
-const { listCurrencies, getCoinTrades } = require('./gdaxApi');
+const { gdaxApi } = require('../../services');
+const { productModel } = require('../../db/model');
 
 module.exports = {
   Query: {
     async getCurrencies() {
-      return await listCurrencies();
+      return await gdaxApi.listCurrencies();
     },
     async getTrades(root, { fromCoin, toCoin }) {
-      return await getCoinTrades(fromCoin, toCoin);
+      return await gdaxApi.getCoinTrades(fromCoin, toCoin);
     }
   },
   Subscription: {
